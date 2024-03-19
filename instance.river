@@ -13,8 +13,7 @@ declare "filter" {
 
 		stage.static_labels {
 			values = {
-				app      = "agent",
-				hostname = constants.hostname,
+				app = "agent",
 			}
 		}
 
