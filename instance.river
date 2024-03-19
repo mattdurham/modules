@@ -11,6 +11,12 @@ declare "filter" {
 			action   = "drop"
 		}
 
+		stage.labels {
+			values = {
+				app = "agent",
+			}
+		}
+
 		// Send processed logs to our argument.
 		forward_to = [argument.write_to.value]
 	}
