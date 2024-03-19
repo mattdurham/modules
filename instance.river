@@ -7,7 +7,7 @@ declare "filter" {
 	loki.process "filter" {
 		// Drop all debug- and info-level logs.
 		stage.match {
-			selector = `{job!=""} |~ "level=(debug|info)"`
+			selector = `{job!=""} |~ "level=(debug)"`
 			action   = "drop"
 		}
 
