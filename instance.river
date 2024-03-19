@@ -1,0 +1,21 @@
+declase "log" {
+	argument "write_to" {
+		optional = true
+	}
+	// loki.process.filter is our component which executes the filtering,
+	// passing filtered logs to argument.write_to.value.
+	loki.process "filter" {
+		// Drop all debug- and info-level logs.
+		stage.match {
+			selector = `{job!=""} |~ "level=(debug|info)"`
+			action   = "drop"
+		}
+
+		// Send processed logs to our argument.
+		forward_to = argument.write_to.value
+	}
+
+	export "output" {
+		value = loki.process.filter.receiver
+	}
+}
