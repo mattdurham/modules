@@ -12,7 +12,7 @@ declare "filter" {
 		}
 
 		// Send processed logs to our argument.
-		forward_to = argument.write_to.value
+		forward_to = [argument.write_to.value]
 	}
 
 	export "receiver" {
