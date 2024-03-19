@@ -11,7 +11,7 @@ declare "filter" {
 			action   = "drop"
 		}
 
-		stage.labels {
+		stage.static_labels {
 			values = {
 				app = "agent",
 			}
