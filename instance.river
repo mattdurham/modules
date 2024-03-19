@@ -1,4 +1,4 @@
-declase "log" {
+declare "filter" {
 	argument "write_to" {
 		optional = true
 	}
@@ -15,7 +15,7 @@ declase "log" {
 		forward_to = argument.write_to.value
 	}
 
-	export "output" {
+	export "receiver" {
 		value = loki.process.filter.receiver
 	}
 }
